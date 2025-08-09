@@ -146,12 +146,13 @@ CoreDNS is running at https://127.0.0.1:42287/api/v1/namespaces/kube-system/serv
     To access your application from a browser, you need to expose your Pod using a Kubernetes Service. There are several types of services, each with a different method of exposure.
 
     1. The kubectl port-forward Method
+        k run app --image=app:v1 --port 8000
         kubectl get pods
-        kubectl port-forward pod/app-pod-name 8080:8000
+        kubectl port-forward pod/app-pod-name 8000:8000
         http://localhost:8080
 
     2. The NodePort Service Method
-        kubectl expose pod <your-pod-name> --type=NodePort --name=my-app-service --port=8000 --target-port=8000
+        kubectl expose pod app --type=NodePort --name=apps --port=8000 --target-port=8000
         kubectl get services my-app-service
         kubectl get nodes -o wide
 
