@@ -38,6 +38,9 @@ ingresses and ingress controllers make your app internet accessible
 ## create cluster
 
     kind create cluster --name testcluster
+    kind get clusters
+    kind get kubeconfig --name testcluster
+    kind get nodes --name testcluster
 
     kubectl cluster-info --context kind-testcluster
     kubectl get nodes
